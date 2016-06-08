@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="title">Zarządzanie urządzeniami</h1>
+    <table class="table table-bordered">
+        <tr>
+            <th>Nazwa urządzenia</th>
+            <th>Serial</th>
+            <th>Data końca gwarancji</th>
+            <th>Akcja</th>
+        </tr>
+        {% for device in devices %}
+            <tr>
+                <td>{{ device.name }}</td>
+                <td>{{ device.serialNumber }}</td>
+                <td>{{ device.guaranteeEnd }}</td>
+                <td><a class="btn btn-primary" href="{{ path('edit_device', {'id': material.id}) }}">Edytuj urządzenie</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a class="btn btn-success" href="{{ path('add_device') }}">Dodaj nowe urządzenie</a>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="{{ wrapperClass }}-wrapper" style="float:left">
+        {{ label }}
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+
+    {% if not form.vars.valid %}
+        <div class="alert alert-error">
+            {{ form_errors(form) }}
+        </div>
+    {% endif %}
+   
+    <div style="clear: both;">
+
+{% endblock %}
+
+
+{% block javascripts %}
+    
+{% endblock %}
