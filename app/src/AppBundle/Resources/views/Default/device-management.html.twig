@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="title">Device management</h1>
+    <table class="table table-bordered">
+        <tr>
+            <th>Device name</th>
+            <th>Serial number</th>
+            <th>Guarantee end</th>
+            <th>Action</th>
+        </tr>
+        {% for device in devices %}
+            <tr>
+                <td>{{ device.name }}</td>
+                <td>{{ device.serialNumber }}</td>
+                <td>{{ device.guaranteeEnd|date('Y-m-d H:i:s') }}</td>
+                <td><a class="btn btn-primary" href="{{ path('edit_device', {'id': device.id}) }}">Edit device</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a class="btn btn-success" href="{{ path('add_device') }}">Add device</a>
+
+{% endblock %}

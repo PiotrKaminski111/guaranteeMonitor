@@ -4,7 +4,9 @@
     <div class="{{ wrapperClass }}-wrapper" style="float:left">
         {{ label }}
         {{ form_start(form) }}
-        {{ form_widget(form) }}
+            <fieldset class="form-group">
+                {{ form_widget(form) }}
+            </fieldset>
         {{ form_end(form) }}
     </div>
 
@@ -15,7 +17,7 @@
     {% endif %}
    
     <div style="clear: both;">
-
+    <a class="btn btn-primary" href="{{ path('homepage') }}">Back to homepage</a>
 {% endblock %}
 
 

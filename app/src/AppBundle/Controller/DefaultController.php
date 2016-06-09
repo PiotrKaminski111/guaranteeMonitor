@@ -12,9 +12,9 @@ class DefaultController extends Controller
 {
 
     
-     /**
-     * @Route("/")
-     */
+    /**
+    * @Route("/", name="homepage")
+    */
     public function indexAction(Request $request)
     {        
         $em      = $this->getDoctrine()->getManager();
@@ -47,24 +47,14 @@ class DefaultController extends Controller
             
             $entityManager->persist($filledEntity);
             $entityManager->flush();
-            
-            $deviceEntity = new \AppBundle\Entity\Device();
                 
-            $form = $this->createForm(
-                    '\AppBundle\Form\MaterialType', 
-                    $deviceEntity
-            );
+            return new Response('New device added!');
             
-            return $this->render('AppBundle:Default/form.html.twig', [
-                'form' => $form->createView(),
-                'label' => 'Dodaj Urządzenie',
-                'wrapperClass' => 'add-device'
-            ]);
         }
 
         return $this->render('AppBundle:Default/form.html.twig', [
             'form' => $form->createView(),
-            'label' => 'Dodaj Urządzenie',
+            'label' => 'Add device',
             'wrapperClass' => 'add-device'
         ]);
         
@@ -87,12 +77,12 @@ class DefaultController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getEntityManager();       
-            $entityManager->flush();
+            $entityManager->flush();        
         }   
         
         return $this->render('AppBundle:Default/form.html.twig', [
             'form' => $form->createView(),
-            'label' => 'Edycja Urządzenia',
+            'label' => 'Edit device',
             'wrapperClass' => 'device'
         ]);
         
