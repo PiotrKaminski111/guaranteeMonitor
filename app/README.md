@@ -33,8 +33,6 @@ Guarantee monitor App uses a number of open source projects to work properly:
 
 You need composer to install all dependecies globally:
 
-Unpack files from app.zip then run:
-
 ```sh
 $ php composer install
 $ create empty database named guarantee
