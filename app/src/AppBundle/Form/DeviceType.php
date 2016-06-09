@@ -5,7 +5,7 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class DeviceType extends AbstractType
@@ -25,7 +25,7 @@ class DeviceType extends AbstractType
                     'attr' => array('class' => 'form-control'),
                 )
             )
-            ->add('guaranteeEnd', DateTimeType::class, array(
+            ->add('guaranteeEnd', DateType::class, array(
                     'placeholder' => 'Select a value',
                     //'attr' => array('class' => 'form-control'),
                 )

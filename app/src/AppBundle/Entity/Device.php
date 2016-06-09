@@ -35,10 +35,10 @@ class Device
     /** @ORM\Column(type="string") */
     protected $name;
 
-    /** @ORM\Column(type="datetime") */
+    /** @ORM\Column(type="date") */
     protected $guaranteeEnd;
     
-    /**@ORM\Column(type="boolean") */
+    /** @ORM\Column(type="boolean") */
     protected $sended;
     
     public function __construct()
@@ -128,5 +128,29 @@ class Device
     public function getGuaranteeEnd()
     {
         return $this->guaranteeEnd;
+    }
+
+    /**
+     * Set sended
+     *
+     * @param boolean $sended
+     *
+     * @return Device
+     */
+    public function setSended($sended)
+    {
+        $this->sended = $sended;
+
+        return $this;
+    }
+
+    /**
+     * Get sended
+     *
+     * @return boolean
+     */
+    public function getSended()
+    {
+        return $this->sended;
     }
 }

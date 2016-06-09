@@ -1,6 +1,6 @@
 {
-    "name": "guarantee/app",
-    "license": "MIT",
+    "name": "randy/app",
+    "license": "proprietary",
     "type": "project",
     "autoload": {
         "psr-4": {
@@ -18,7 +18,7 @@
     },
     "require": {
         "php": ">=5.5.9",
-        "symfony/symfony": "2.8.*",
+        "symfony/symfony": "3.0.*",
         "doctrine/orm": "^2.5",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/doctrine-cache-bundle": "^1.2",
@@ -32,7 +32,9 @@
         "components/bootstrap": "^3.3",
         "components/jquery": "^2.2",
         "psr/log": "^1.0",
-        "paragonie/random_compat": "v1.4.1"
+        "coresphere/console-bundle": "^0.4.0",
+        "paragonie/random_compat": "v1.4.1",
+        "cleentfaar/slack-bundle": "^0.20.1"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
