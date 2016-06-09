@@ -35,17 +35,19 @@ class Device
     /** @ORM\Column(type="string") */
     protected $name;
 
-    /** @ORM\Column(type="date") */
+    /** @ORM\Column(type="date") 
+     *  @Assert\GreaterThan("today")
+     */
     protected $guaranteeEnd;
     
     /** @ORM\Column(type="boolean") */
     protected $sended;
     
+    
     public function __construct()
     {
         
     }
-
     
 
     /**
