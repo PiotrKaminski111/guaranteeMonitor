@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
@@ -42,9 +43,9 @@ class DefaultController extends Controller
         $form->handleRequest($request);        
 
         if ($form->isSubmitted() && $form->isValid()) {     
-            $entityManager = $this->getDoctrine()->getEntityManager();
+            $entityManager = $this->getDoctrine()->getManager();
             $filledEntity  = $form->getData();
-            
+            $filledEntity->setSended(false);
             $entityManager->persist($filledEntity);
             $entityManager->flush();
                 

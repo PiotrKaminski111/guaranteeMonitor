@@ -6,12 +6,22 @@ It has three basic management view
 
 * homepage                   - device management (add, edit)
 
+Console action for cron task
+
+php bin/console guarantee:check
+
+Example of cron task config (it could be diffent because of server you use):
+
+*/5 * * * * php php bin/console guarantee:check
+
+run every 5 minutes
+
 ### Version
 1.0
 
 ### Tech
 
-Alteris Test App uses a number of open source projects to work properly:
+Guarantee monitor App uses a number of open source projects to work properly:
 
 * [Symfony 3]         - PHP framework
 * [Doctrine 2]        - Object Relational Mapper (ORM)
@@ -30,10 +40,6 @@ $ php composer install
 $ php bin/console doctrine:schema:update --force
 $ php bin/console assetic:dump
 ```
-
-### Todos
-
- - Write Tests
 
 License
 ----

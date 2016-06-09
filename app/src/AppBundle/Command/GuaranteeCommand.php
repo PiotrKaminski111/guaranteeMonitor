@@ -48,7 +48,7 @@ class GuaranteeCommand extends ContainerAwareCommand
         }
         
         $em->flush();
-        $output->writeln('Checked all devices');
+        $output->writeln('All devices checked');
        
     }
 }

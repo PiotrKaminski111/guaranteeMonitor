@@ -13,7 +13,7 @@
             <tr>
                 <td>{{ device.name }}</td>
                 <td>{{ device.serialNumber }}</td>
-                <td>{{ device.guaranteeEnd|date('Y-m-d H:i:s') }}</td>
+                <td>{{ device.guaranteeEnd|date('Y-m-d') }}</td>
                 <td><a class="btn btn-primary" href="{{ path('edit_device', {'id': device.id}) }}">Edit device</a></td>
             </tr>
         {% endfor %}
