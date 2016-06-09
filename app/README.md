@@ -37,6 +37,7 @@ Unpack files from app.zip then run:
 
 ```sh
 $ php composer install
+$ create empty database named guarantee
 $ php bin/console doctrine:schema:update --force
 $ php bin/console assetic:dump
 ```
