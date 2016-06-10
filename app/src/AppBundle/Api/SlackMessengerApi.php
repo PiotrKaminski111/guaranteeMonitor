@@ -1,13 +1,27 @@
 <?php
-// src/AppBundle/Api/SlackMessageGenerator.php
+// src/AppBundle/Api/SlackMessengerApi.php
 
 namespace AppBundle\Api;
 
-class SlackMessageGenerator 
+
+class SlackMessengerApi
 {
-    const SLACK_WEBHOOK_ENDPOINT = 'https://hooks.slack.com/services/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';
- 
     const CONFIRM_MESSAGE = 'ok';
+    
+    protected $endpoint;
+    
+
+    public function __construct($endpoint)
+    {
+        $this->endpoint = $endpoint;
+    }
+    
+    
+    private function _getEndpoint()
+    {
+        return $this->endpoint;
+    }
+    
      
     public function sendMessage($message)
     {
@@ -19,7 +33,7 @@ class SlackMessageGenerator
 
         $ch = curl_init();
 
-        curl_setopt($ch, CURLOPT_URL, self::SLACK_WEBHOOK_ENDPOINT);
+        curl_setopt($ch, CURLOPT_URL, $this->_getEndpoint());
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

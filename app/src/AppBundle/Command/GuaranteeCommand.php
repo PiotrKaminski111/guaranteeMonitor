@@ -5,7 +5,7 @@ namespace AppBundle\Command;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use AppBundle\Api\SlackMessageGenerator;
+use AppBundle\Api\SlackMessengerApi;
 
 class GuaranteeCommand extends ContainerAwareCommand
 {
@@ -28,7 +28,7 @@ class GuaranteeCommand extends ContainerAwareCommand
         $devices = $em->getRepository('AppBundle:Device')->findBy(array('sended' => false));
         $nowDate = new \DateTime('now');
         $intervalCheck         = new \DateInterval(self::DATE_INTERVAL);
-        $slackMessageGenerator = new SlackMessageGenerator();
+        $slackMessageGenerator = $this->getContainer()->get('slack.messenger.api');
         
         foreach ($devices as $device) {
             $intervalBetweenDates = $nowDate->diff($device->getGuaranteeEnd());
@@ -38,7 +38,7 @@ class GuaranteeCommand extends ContainerAwareCommand
                     'Device with serial ' . $device->getSerialNumber() . 'ends guarantee at ' . $device->getGuaranteeEnd()->format('Y-m-d')
                 );
 
-                if ($result !== SlackMessageGenerator::CONFIRM_MESSAGE) {
+                if ($result !== SlackMessengerApi::CONFIRM_MESSAGE) {
                     $output->writeln($result);
                     return;
 

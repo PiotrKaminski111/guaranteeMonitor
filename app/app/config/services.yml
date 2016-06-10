@@ -1,9 +1,9 @@
 # Learn more about services, parameters and containers at
 # http://symfony.com/doc/current/book/service_container.html
 parameters:
-#    parameter_name: value
-
+    slack.endpoint: https://hooks.slack.com/services/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
+    
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    slack.messenger.api:
+        class:   AppBundle\Api\SlackMessengerApi
+        arguments: ["%slack.endpoint%"]
