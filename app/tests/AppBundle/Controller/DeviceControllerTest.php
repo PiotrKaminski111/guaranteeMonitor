@@ -4,7 +4,7 @@ namespace Tests\AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class DefaultControllerTest extends WebTestCase
+class DeviceControllerTest extends WebTestCase
 {
     public function testIndex()
     {
@@ -44,8 +44,9 @@ class DefaultControllerTest extends WebTestCase
     public function testEditDevice()
     {
         $client  = static::createClient();
-        $crawler = $client->request('GET', '/add-device');
+        $crawler = $client->request('GET', '/edit-device/1');
         $form    = $crawler->selectButton('Save')->form();
         
+         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
 }

@@ -1,7 +1,7 @@
 <?php
-// src/AppBundle/Utils/SlackMessageGenerator.php
+// src/AppBundle/Api/SlackMessageGenerator.php
 
-namespace AppBundle\Utils;
+namespace AppBundle\Api;
 
 class SlackMessageGenerator 
 {
@@ -9,7 +9,7 @@ class SlackMessageGenerator
  
     const CONFIRM_MESSAGE = 'ok';
      
-    public static function sendMessage($message)
+    public function sendMessage($message)
     {
         $data = 'payload=' . json_encode(array(         
                   'channel'    => '#general',

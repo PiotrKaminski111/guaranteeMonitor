@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Response;
 
-class DefaultController extends Controller
+class DeviceController extends Controller
 {
 
     
@@ -21,7 +21,7 @@ class DefaultController extends Controller
         $em      = $this->getDoctrine()->getManager();
         $devices = $em->getRepository('AppBundle:Device')->findAll();
 
-       return $this->render('AppBundle:Default/device-management.html.twig', [
+       return $this->render('AppBundle:Device/device-management.html.twig', [
                 'devices' => $devices
         ]);
             
@@ -53,10 +53,9 @@ class DefaultController extends Controller
             
         }
 
-        return $this->render('AppBundle:Default/form.html.twig', [
+        return $this->render('AppBundle:Device/form.html.twig', [
             'form' => $form->createView(),
             'label' => 'Add device',
-            'wrapperClass' => 'add-device'
         ]);
         
     }
@@ -81,10 +80,9 @@ class DefaultController extends Controller
             $entityManager->flush();        
         }   
         
-        return $this->render('AppBundle:Default/form.html.twig', [
+        return $this->render('AppBundle:Device/form.html.twig', [
             'form' => $form->createView(),
-            'label' => 'Edit device',
-            'wrapperClass' => 'device'
+            'label' => 'Edit device'
         ]);
         
     }
