@@ -25,7 +25,7 @@ class GuaranteeCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {   
         $em      = $this->getContainer()->get('doctrine')->getManager();
-        $devices = $em->getRepository('AppBundle:Device')->findBy(array('sended' => false));
+        $devices = $em->getRepository('AppBundle:Device')->findBy(array('sent' => false));
         $nowDate = new \DateTime('now');
         $intervalCheck         = new \DateInterval(self::DATE_INTERVAL);
         $slackMessageGenerator = $this->getContainer()->get('slack.messenger.api');
@@ -43,7 +43,7 @@ class GuaranteeCommand extends ContainerAwareCommand
                     return;
 
                 } else {
-                    $device->setSended(true);
+                    $device->setSent(true);
                 }
             }
         }

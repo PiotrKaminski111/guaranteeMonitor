@@ -41,7 +41,7 @@ class Device
     protected $guaranteeEnd;
     
     /** @ORM\Column(type="boolean") */
-    protected $sended;
+    protected $sent;
     
     
     public function __construct()
@@ -133,26 +133,26 @@ class Device
     }
 
     /**
-     * Set sended
+     * Set sent
      *
-     * @param boolean $sended
+     * @param boolean $sent
      *
      * @return Device
      */
-    public function setSended($sended)
+    public function setSent($sent)
     {
-        $this->sended = $sended;
+        $this->sent = $sent;
 
         return $this;
     }
 
     /**
-     * Get sended
+     * Get sent
      *
      * @return boolean
      */
-    public function getSended()
+    public function getSent()
     {
-        return $this->sended;
+        return $this->sent;
     }
 }

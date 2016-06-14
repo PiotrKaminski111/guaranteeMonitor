@@ -45,7 +45,7 @@ class DeviceController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {     
             $entityManager = $this->getDoctrine()->getManager();
             $filledEntity  = $form->getData();
-            $filledEntity->setSended(false);
+            $filledEntity->setSent(false);
             $entityManager->persist($filledEntity);
             $entityManager->flush();
                 
